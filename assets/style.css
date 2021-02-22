@@ -1,3 +1,15 @@
-body{margin: 0px; border: 0px; padding: 0px; box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+body{margin: 0px; border: 0px; padding: 0px; box-sizing: border-box; font-family: 'Raleway', sans-serif;}
+button{border: none; background-color: #7B1FA2; color: white; font-family: 'Raleway', sans-serif; font-size: 15px;}
+p{font-size: 18px;}
 #header {background-color: #7B1FA2; padding: 8px; display: flex; align-items: center; justify-content: center; height: 44px; width: 100vw;}
 img{height: 45px; width: 193px}
+#main{display: flex; align-items: center; justify-content: center; margin-top: 20px;}
+.banner{background-image: url("../assets/img/home_background.png"); height: 273px; width: 1110px; background-position: center;
+  background-size: cover; padding-left: 15px; padding-right: 15px; padding-top: 60px;}
+.bannerText{color: white; text-align: center;}
+.containerText{width: 525px; text-align: center; padding-left: 27%; padding-top: 3.5%;}
+.bannerButton{height: 21px; width: 499px; padding-top: 6px; padding-bottom: 6px; padding-left: 12px; padding-right: 12px; border: 1px solid #7B1FA2; background-color: #7B1FA2 ; border-radius: 6px; margin-top: 15%;}
+.bannerButton:hover{cursor: pointer;}
+.bannerText:hover{cursor: default;}
+
