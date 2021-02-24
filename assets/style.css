@@ -28,6 +28,8 @@ p {
 }
 
 #header {
+  top: 0;
+  position: fixed;
   background-color: #7B1FA2; 
   padding: 8px; 
   display: flex; 
@@ -64,6 +66,10 @@ p {
   outline: 0;
 }
 
+.container-login button.login:hover {
+  cursor: pointer;
+}
+
 #main {
   display: flex; 
   flex-direction: column;
@@ -75,11 +81,11 @@ p {
 
 .banner {
   background-image: url("../assets/img/home_background.png"); 
-  height: 273px; 
+  height: 367px; 
   width: 1110px; 
   background-position: center;
   background-size: cover; 
-  padding-top: 60px;
+  margin-top: 60px;
 }
 
 .bannerText {
@@ -91,7 +97,7 @@ p {
   width: 525px; 
   text-align: center; 
   padding-left: 27%; 
-  padding-top: 3.5%;
+  padding-top: 12%;
 }
 
 .bannerButton {
@@ -108,6 +114,14 @@ p {
 }
 
 .bannerButton:hover {
+  cursor: pointer;
+}
+
+.bannerButton button {
+  outline: 0;
+}
+
+.bannerButton button:hover {
   cursor: pointer;
 }
 
@@ -178,7 +192,6 @@ section.area1 {
 
 .dish {
   flex: 1;
-  
 }
 
 .green {
@@ -199,5 +212,61 @@ section.area1 {
 .help-button {
   position: fixed;
   right: 2%;
-  bottom: 5%;
+  bottom: 1%;
+}
+
+@media (max-width: 425px) {
+  p {
+    font-size: 16px;
+  }
+
+  .container-login {
+    display: none;
+  }
+
+  .container-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner {
+    max-width: 425px;
+    height: 298px;
+    margin-top: 40px;
+  }
+
+  .containerText {
+    width: 90%;
+    padding-left: 5%;
+    padding-top: 15%;
+  }
+
+  .bannerButton {
+    width: 365px;
+  }
+
+  section.area1 {
+    width: 425px;
+    height: 1000px;
+  }
+
+  .imgs {
+    flex-direction: column;
+  }
+
+  .touch {
+    width: 365px;
+  }
+  
+  .moto {
+    width: 365px;
+  }
+  
+  .dish {
+    width: 365px;
+  }
+
+  .purple {
+    margin-bottom: 10px;
+  }
 }
