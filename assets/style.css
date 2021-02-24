@@ -1,28 +1,203 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
-body{margin: 0px; border: 0px; padding: 0px; box-sizing: border-box; font-family: 'Raleway', sans-serif;  background-color: #f6f6f6;}
-button{border: none; background-color: #7B1FA2; color: white; font-family: 'Raleway', sans-serif; font-size: 15px;}
-p{font-size: 18px;}
-#header {background-color: #7B1FA2; padding: 8px; display: flex; align-items: center; justify-content: center; height: 44px; width: 100vw;}
-#logo{height: 45px; width: 193px;}
-#main{display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 20px; flex-direction: column;}
-.banner{background-image: url("../assets/img/home_background.png"); height: 273px; width: 1110px; background-position: center;
-  background-size: cover; padding-left: 15px; padding-right: 15px; padding-top: 60px;}
-.bannerText{color: white; text-align: center;}
-.containerText{width: 525px; text-align: center; padding-left: 27%; padding-top: 3.5%;}
-.bannerButton{height: 21px; width: 499px; padding-top: 6px; padding-bottom: 6px; padding-left: 12px; padding-right: 12px;
-  border: 1px solid #7B1FA2; background-color: #7B1FA2 ; border-radius: 6px; margin-top: 15%;}
-.bannerButton:hover{cursor: pointer;}
-.bannerText:hover{cursor: default;}
-.bottom{background-color: white; padding-top: 2%; width: 1110px; height: 353.188px; padding-left: 15px; padding-right: 15px; justify-content: space-between}
-.purple{font-size: 25px; font-weight: 500; color: #7B1FA2; margin-bottom: 0px; text-align: center;}
-.dark{margin: 0!important; margin-block-start: 0px; text-align: center;}
-.imgs{margin-top: 20px; display: flex; }
-#touch{max-height: 200px; margin: 5px; width: 191.078px; height: 200px; align-items: center;}
-#moto{max-height: 200px; margin: 5px; width: 200px; height: 168px; margin-top: 30px; align-items: center;}
-#dish{max-height: 200px; margin: 5px; width: 200px; height: 200px; align-items: center;}
-.touch{width: 340px;}
-.moto{width: 340px;}
-.dish{width: 340px;}
-.green{text-align: center; color: #00A296; justify-content: center; margin: 0px; font-weight: bold}
-.black{font-size: 15px; text-align: center; margin: 0px;}
 
+body {
+  margin: 0px; 
+  border: 0px; 
+  padding: 0px; 
+  box-sizing: border-box; 
+  font-family: 'Raleway', sans-serif;  
+  background-color: #f6f6f6;
+  overflow-x: hidden;
+}
+
+button {
+  border: none; 
+  background-color: #7B1FA2; 
+  color: white; 
+  font-family: 'Raleway', sans-serif; 
+  font-size: 15px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.center {
+  max-width: 1110px;
+  margin: auto;
+}
+
+#header {
+  background-color: #7B1FA2; 
+  padding: 8px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 44px; 
+  width: 100vw;
+  max-width: 100%;
+}
+
+#logo {
+  height: 45px; 
+  width: 193px;
+}
+
+.container-logo {
+  width: 55%;
+}
+
+.container-login {
+  display: flex;
+  align-items: center; 
+  justify-content: start; 
+  width: 45%;
+}
+
+.container-login button.login {
+  background: #00A296;
+  width: 100px;
+  height: 45px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 500;
+  outline: 0;
+}
+
+#main {
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 20px; 
+  flex-direction: column;
+}
+
+.banner {
+  background-image: url("../assets/img/home_background.png"); 
+  height: 273px; 
+  width: 1110px; 
+  background-position: center;
+  background-size: cover; 
+  padding-top: 60px;
+}
+
+.bannerText {
+  color: white; 
+  text-align: center;
+}
+
+.containerText {
+  width: 525px; 
+  text-align: center; 
+  padding-left: 27%; 
+  padding-top: 3.5%;
+}
+
+.bannerButton {
+  height: 21px; 
+  width: 499px; 
+  padding-top: 6px; 
+  padding-bottom: 6px; 
+  padding-left: 12px; 
+  padding-right: 12px;
+  border: 1px solid #7B1FA2; 
+  background-color: #7B1FA2 ; 
+  border-radius: 6px; 
+  margin-top: 15%;
+}
+
+.bannerButton:hover {
+  cursor: pointer;
+}
+
+.bannerText:hover {
+  cursor: default;
+}
+
+section.area1 {
+  background-color: white;
+  width: 1110px;
+  height: 450px;
+}
+
+.purple {
+  font-size: 25px; 
+  font-weight: 500; 
+  color: #7B1FA2;
+  margin-top: 57px;
+  text-align: center;
+}
+
+.dark {
+  margin: 0!important; 
+  margin-block-start: 0px; 
+  text-align: center;
+}
+
+.imgs {
+  width: 100%;
+  margin-top: 20px; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+#touch {
+  max-height: 200px;
+  margin: 5px; 
+  width: 191px; 
+  height: 200px; 
+  padding-left: 22%;
+}
+
+#moto {
+  max-height: 200px; 
+  margin: 5px; 
+  width: 200px; 
+  height: 168px; 
+  margin-top: 30px;
+  padding-left: 22%;
+}
+
+#dish {
+  max-height: 200px; 
+  margin: 5px; 
+  width: 200px; 
+  height: 200px; 
+  padding-left: 22%;
+}
+
+.touch {
+  flex: 1;
+}
+
+.moto {
+ flex: 1;
+}
+
+.dish {
+  flex: 1;
+  
+}
+
+.green {
+  text-align: center; 
+  color: #00A296; 
+  justify-content: center; 
+  padding-top: 10px;
+  margin: 0px; 
+  font-weight: bold
+}
+
+.black {
+  font-size: 15px; 
+  text-align: center; 
+  margin: 0px;
+}
+
+.help-button {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+}
