@@ -22,6 +22,10 @@ p {
   font-size: 18px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .center {
   max-width: 1110px;
   margin: auto;
@@ -31,43 +35,20 @@ p {
   top: 0;
   position: fixed;
   background-color: #7B1FA2; 
-  padding: 8px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+  padding-top: 8px; 
+  padding-bottom: 8px;
   height: 44px; 
   width: 100vw;
-  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 #logo {
+  left: 50%;
   height: 45px; 
   width: 193px;
-}
-
-.container-logo {
-  width: 55%;
-}
-
-.container-login {
-  display: flex;
-  align-items: center; 
-  justify-content: start; 
-  width: 45%;
-}
-
-.container-login button.login {
-  background: #00A296;
-  width: 100px;
-  height: 45px;
-  border-radius: 6px;
-  font-size: 20px;
-  font-weight: 500;
-  outline: 0;
-}
-
-.container-login button.login:hover {
-  cursor: pointer;
 }
 
 #main {
@@ -75,17 +56,17 @@ p {
   flex-direction: column;
   align-items: center; 
   justify-content: center; 
-  margin-top: 20px; 
+  margin-top: 80px; 
   flex-direction: column;
 }
 
 .banner {
   background-image: url("../assets/img/home_background.png"); 
-  height: 367px; 
+  height: 273px; 
   width: 1110px; 
   background-position: center;
   background-size: cover; 
-  margin-top: 60px;
+  padding-top: 60px;
 }
 
 .bannerText {
@@ -97,7 +78,7 @@ p {
   width: 525px; 
   text-align: center; 
   padding-left: 27%; 
-  padding-top: 12%;
+  padding-top: 3.5%;
 }
 
 .bannerButton {
@@ -132,7 +113,7 @@ p {
 section.area1 {
   background-color: white;
   width: 1110px;
-  height: 450px;
+  height: 600px;
 }
 
 .purple {
@@ -140,6 +121,7 @@ section.area1 {
   font-weight: 500; 
   color: #7B1FA2;
   margin-top: 57px;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -228,25 +210,32 @@ section.area1 {
     display: flex;
     justify-content: center;
   }
-
-  .banner {
+  #main {
+    margin-top: 20px;
     max-width: 425px;
-    height: 298px;
+  }
+  .banner {
+    position: relative;
+    width: 100%;
+    max-height: 298px;
     margin-top: 40px;
   }
 
   .containerText {
-    width: 90%;
-    padding-left: 5%;
-    padding-top: 15%;
+    width: 82%;
+    position: relative;
+    padding-left: 10%;
+    padding-top: 8%;
   }
 
   .bannerButton {
-    width: 365px;
+    position: relative;
+    width: 90%;
   }
 
   section.area1 {
-    width: 425px;
+    position: relative;
+    width: 100%;
     height: 1000px;
   }
 
