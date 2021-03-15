@@ -316,10 +316,17 @@ section.area1 {
     font-size: 16px;
   }
 
-  .container-logo {
-    display: flex;
-    justify-content: center;
+  #header {
+    justify-content: flex-end;
   }
+
+  #logo {
+    padding-top: 2px;
+    width: 126px;
+    height: 30px; 
+    padding-right: 10px;
+  }
+
   #main {
     margin-top: 20px;
     max-width: 425px;
