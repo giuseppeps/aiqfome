@@ -280,6 +280,24 @@ section.area1 {
   border-right: 0px;
 }
 
+.modal #emailRegister {
+  font-size: 18px;
+  height: 27px;
+  width: 256px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.modal #senhaRegister {
+  font-size: 18px;
+  height: 27px;
+  width: 256px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 .modal .login .field {
   display: flex;
   justify-content: center;  
@@ -287,6 +305,14 @@ section.area1 {
 }
 
 .modal .login .btnLogin {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 5vw;
+  margin-top: 25px;
+}
+
+.modal .login .btnRegister {
+  cursor: pointer;
   border-radius: 10px;
   padding: 10px 5vw;
   margin-top: 25px;
@@ -297,10 +323,18 @@ section.area1 {
   margin-right: 5%;
 }
 
+.modal .login .Close span {
+  cursor: pointer;
+}
+
 .LostPassword {
   color: #441C55;
   font-weight: 600;
   font-size: 15px;
+}
+
+.LostPassword span{
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1110px) {

@@ -14,8 +14,9 @@
   <div id="modalLogin" class="modal">
     <div class="login">
 
-      <p onclick="toogleModalLogin()" class="Close">
-        X
+      <p class="Close">
+        <span onclick="toogleModalLogin()">X</span>
+        
       </p>
 
       <div class="field">
@@ -27,12 +28,33 @@
         <img id="logoSenha" src= "/assets/img/senha.png" alt= "Logo senha"></img> 
         <input type="password" id= "senha" placeholder="senha"/>
       </div>
-      <button class="btnLogin" >ENTRAR</button>
+      <button class="btnLogin" onclick="login()" >ENTRAR</button>
       
       <p class="LostPassword">
-        putz, não lembro minha senha :(
+        <span>putz, <a href="#" onclick="alert('asdads')">não tenho uma conta</a> :(</span>
       </p>
       
+    </div>
+  </div><!--login-banner-->
+
+  <div id="modalRegister" class="modal">
+    <div class="login">
+
+      <p class="Close">
+        <span onclick="toogleModalLogin()">X</span>
+        
+      </p>
+
+      <div class="field">
+        <img id="logoMail" src= "/assets/img/mail.png" alt= "Logo mail"></img> 
+        <input type="email" id= "emailRegister" placeholder="email"/>
+      </div>
+      
+      <div class="field">
+        <img id="logoSenha" src= "/assets/img/senha.png" alt= "Logo senha"></img> 
+        <input type="password" id= "senhaRegister" placeholder="senha"/>
+      </div>
+      <button class="btnRegister" onclick="register()" >Cadastrar</button>      
     </div>
   </div><!--login-banner-->
 
