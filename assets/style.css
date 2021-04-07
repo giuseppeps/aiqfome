@@ -42,7 +42,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9999;
+  z-index: 1;
 }
 
 #logo {
@@ -225,6 +225,82 @@ section.area1 {
 
 .help-button:hover {
   cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  text-align: center;
+  background-color: #00000086;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal .login {
+  background-color: #FFF;
+  min-height: 40vh;
+  width: 30vw;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 25px 10px;
+}
+
+.modal #logoMail {
+  margin: 10px;
+  height: 24.875px;
+  width: 35px;
+}
+
+.modal #logoSenha {
+  margin: 10px;
+  height: 30px;
+  width: 25px;
+}
+
+.modal #email {
+  font-size: 18px;
+  height: 27px;
+  width: 256px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.modal #senha {
+  font-size: 18px;
+  height: 27px;
+  width: 256px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.modal .login .field {
+  display: flex;
+  justify-content: center;  
+  margin-top: 25px;
+}
+
+.modal .login .btnLogin {
+  border-radius: 10px;
+  padding: 10px 5vw;
+  margin-top: 25px;
+}
+
+.modal .login .Close {
+  text-align: right;
+  margin-right: 5%;
+}
+
+.LostPassword {
+  color: #441C55;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 @media (min-width: 768px) and (max-width: 1110px) {
