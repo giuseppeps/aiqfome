@@ -1,18 +1,27 @@
-// window.addEventListener('load', (e)=>{
-//   document.getElementById('modalLogin').style.display = 'none'
-// })
-
 function toogleModalLogin() {
    //caso ele esteja fechado
   if(document.getElementById('modalLogin').style.display == '' || 
   document.getElementById('modalLogin').style.display == 'none') {
-    document.getElementById('modalLogin').style.display = 'flex'
+    document.getElementById('modalLogin').style.display = 'flex';
   } else { //se modal está aberto
    //esconde
-   document.getElementById('modalLogin').style.display = 'none'
+   document.getElementById('modalLogin').style.display = 'none';
   }
 }
 
+function openModalRegister() {
+  if(document.getElementById('modalLogin').style.display =='flex') {
+    document.getElementById('modalLogin').style.display = 'none';
+  }
+  document.getElementById('modalRegister').style.display = 'flex';
+}
+
+function openModalLogin() {
+  if(document.getElementById('modalRegister').style.display =='flex') {
+    document.getElementById('modalRegister').style.display = 'none';
+  }
+  document.getElementById('modalLogin').style.display = 'flex';
+}
 
 function request({method, endPoint, data, onSentCallback}) {
   var xhr = new XMLHttpRequest()
