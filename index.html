@@ -18,6 +18,7 @@
         <span onclick="toogleModalLogin()">X</span>
         
       </p>
+      <p class="LostPassword">Login</p>
 
       <div class="field">
         <img id="logoMail" src= "/assets/img/mail.png" alt= "Logo mail"></img> 
@@ -31,7 +32,7 @@
       <button class="btnLogin" onclick="login()" >ENTRAR</button>
       
       <p class="LostPassword">
-        <span>putz, <a href="#" onclick="alert('asdads')">não tenho uma conta</a> :(</span>
+        <span>putz, <a href="#" onclick="openModalRegister()">não tenho uma conta</a> :(</span>
       </p>
       
     </div>
@@ -44,6 +45,7 @@
         <span onclick="toogleModalLogin()">X</span>
         
       </p>
+      <p class="LostPassword">Cadastrar</p>
 
       <div class="field">
         <img id="logoMail" src= "/assets/img/mail.png" alt= "Logo mail"></img> 
@@ -54,7 +56,9 @@
         <img id="logoSenha" src= "/assets/img/senha.png" alt= "Logo senha"></img> 
         <input type="password" id= "senhaRegister" placeholder="senha"/>
       </div>
-      <button class="btnRegister" onclick="register()" >Cadastrar</button>      
+      <button class="btnRegister" onclick="register()" >Cadastrar</button>     
+      <br>
+      <a href="#" onclick="openModalLogin()">Login</a></span> 
     </div>
   </div><!--login-banner-->
 
