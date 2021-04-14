@@ -5,7 +5,6 @@
   <meta name="theme-color" content="#7B1FA2">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
-  <script src="assets/script.js"></script>
   <link id="favicon" rel="shortcut icon" href="/assets/img/logo-pequena.png" type="image/png">
 	<title>aiqfome - Happy Delivery</title>
 </head>
@@ -19,7 +18,8 @@
         
       </p>
       <p class="LostPassword">Login</p>
-
+      <br>
+      <span id="login-notfound"></span>
       <div class="field">
         <img id="logoMail" src= "/assets/img/mail.png" alt= "Logo mail"></img> 
         <input type="email" id= "email" placeholder="email"/>
@@ -42,11 +42,12 @@
     <div class="login">
 
       <p class="Close">
-        <span onclick="toogleModalLogin()">X</span>
+        <span onclick="closeModalRegister()">X</span>
         
       </p>
       <p class="LostPassword">Cadastrar</p>
-
+      <br>
+      <span id="register-error"></span>
       <div class="field">
         <img id="logoMail" src= "/assets/img/mail.png" alt= "Logo mail"></img> 
         <input type="email" id= "emailRegister" placeholder="email"/>
@@ -58,6 +59,7 @@
       </div>
       <button class="btnRegister" onclick="register()" >Cadastrar</button>     
       <br>
+      <br>
       <a href="#" onclick="openModalLogin()">Login</a></span> 
     </div>
   </div><!--login-banner-->
@@ -66,6 +68,11 @@
     <div class="container-login">
       <button onclick="toogleModalLogin()" class="login">entrar</button>
     </div>
+
+    <div class="container-logout">
+      <button class="logout">Sair</button>
+    </div>
+
     <div class="container-logo" >
       <a href="/">
         <img id="logo" src= "/assets/img/logo-aiqfome-original.png" alt= "Logo Aiqfome"></img> 
@@ -133,8 +140,21 @@
     <div class="help-button">
       <img src="/assets/img/icon-ajuda.png" alt="help button"></img>
     </div><!--help-button-->
+  </div>
+   
+  <div id="container-area2">
+    <section class="area2">
+      <span id="timer"></span>
+      <div class="container initial">
+        <form class="area2-form">
+          <input class="area2-input" type="text" placeholder="Busque a sua receita">
+        </form>
+        <div class="search-result"></div>
+      </div>
+    </section>
+  </div>
 
-    
-      
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/fetch.js"></script>
 </body>
 </html>
