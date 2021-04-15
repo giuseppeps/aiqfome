@@ -1,30 +1,32 @@
+let modalLogin = document.getElementById('modalLogin');
+let modalRegister = document.getElementById('modalRegister');
+
 function toogleModalLogin() {
    //caso ele esteja fechado
-  if(document.getElementById('modalLogin').style.display == '' || 
-  document.getElementById('modalLogin').style.display == 'none') {
-    document.getElementById('modalLogin').style.display = 'flex';
+  if(modalLogin.style.display == '' || modalLogin.style.display == 'none') {
+   modalLogin.style.display = 'flex';
   } else { //se modal está aberto
    //esconde
-   document.getElementById('modalLogin').style.display = 'none';
+   modalLogin.style.display = 'none';
   }
 }
 
 function openModalRegister() {
-  if(document.getElementById('modalLogin').style.display =='flex') {
-    document.getElementById('modalLogin').style.display = 'none';
+  if(modalLogin.style.display =='flex') {
+    modalLogin.style.display = 'none';
   }
-  document.getElementById('modalRegister').style.display = 'flex';
+  modalRegister.style.display = 'flex';
 }
 
 function closeModalRegister() {
-  document.getElementById('modalRegister').style.display = 'none';
+  modalRegister.style.display = 'none';
 }
 
 function openModalLogin() {
-  if(document.getElementById('modalRegister').style.display =='flex') {
-    document.getElementById('modalRegister').style.display = 'none';
+  if(modalRegister.style.display =='flex') {
+    modalRegister.style.display = 'none';
   }
-  document.getElementById('modalLogin').style.display = 'flex';
+  modalLogin.style.display = 'flex';
 }
 
 function request({method, endPoint, data, onSentCallback}) {
@@ -61,9 +63,9 @@ function login() {
    onSentCallback: function( responseText ) {
       let response = JSON.parse(responseText);  
 
-
       if(response.error == undefined){
-        document.getElementById('modalLogin').style.display = 'none';
+        //response.error == undefined && response ==200 
+        modalLogin.style.display = 'none';
         document.getElementById('main').style.display = 'none';
         
         document.getElementById("timer").innerHTML="Login efetuado com sucesso, aguarde 2 segundos!";
@@ -77,18 +79,21 @@ function login() {
       }
 
       if(response.error == "user not found"){
-        document.getElementById('modalLogin').style.display = 'none';
+        modalLogin.style.display = 'none';
         document.getElementById("login-notfound").innerHTML="** Usuário não encontrado, efetue o login novamente **";
         setTimeout(function(){
          document.getElementById("login-notfound").innerHTML="";
         },5000);
-        document.getElementById('modalLogin').style.display = 'flex';       
+        modalLogin.style.display = 'flex';       
       }    
    }
  }) 
 }
 
 function register() {
+
+  let registerEmailInput = document.getElementById('emailRegister');
+  let registerPasswordInput = document.getElementById('senhaRegister');
 
   let objData = {
     email: document.getElementById('emailRegister').value,
@@ -100,12 +105,9 @@ function register() {
    endPoint: 'https://reqres.in/api/register',
    data: JSON.stringify(objData),
    onSentCallback: function( responseText ) {
-      let response = JSON.parse(responseText);  
-
-      console.log(response)
-
+      let response = JSON.parse(responseText); 
       if(response.error == undefined){
-        document.getElementById('modalRegister').style.display = 'none'; 
+        modalRegister.style.display = 'none'; 
         document.getElementById('main').style.display = 'none';
         document.getElementById("timer").innerHTML="Registro efetuado com sucesso, aguarde 2 segundos!";
         setTimeout(function(){
@@ -117,13 +119,16 @@ function register() {
         document.querySelector('.container-logout').style.display = 'flex';
       }
 
-      if(response.error != undefined){
-        document.getElementById('modalRegister').style.display = 'none';
-        document.getElementById("register-error").innerHTML="** Erro no cadastramento, efetue o cadastro novamente **";
+      if(response.error != undefined && registerEmailInput.value != '' && registerPasswordInput.value != '' ){
+        modalRegister.style.display = 'none';
+
+        if(response.error != undefined && registerEmailInput.value.length > 3 && registerPasswordInput.value.length > 3) {
+          document.getElementById("register-error").innerHTML="** Erro no cadastramento, efetue o cadastro novamente **";
+        }
         setTimeout(function(){
          document.getElementById("register-error").innerHTML="";
         },5000);
-        document.getElementById('modalRegister').style.display = 'flex';
+        modalRegister.style.display = 'flex';
       }    
    }
  }) 
