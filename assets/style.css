@@ -650,3 +650,10 @@ input.area2-input{
   border-radius: 4px;
   align-self:flex-start;
 }
+
+.error {
+  display: flex;
+  font-size: 11px;
+  color: #FF0000;
+  padding: 4px;
+}
