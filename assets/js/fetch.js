@@ -12,7 +12,7 @@ searchForm.addEventListener('submit', (e) => {
 })
 
 async function fetchAPI(){
-  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=20`;
+  const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=6`;
   const resp = await fetch(baseURL); 
   const dataAPI = await resp.json();
   generateHTML(dataAPI.hits)
@@ -20,7 +20,6 @@ async function fetchAPI(){
 }
 
 function generateHTML(results){
-  container.classList.remove('initial');
   let generatedHTML= '';
   results.map(result => {
     generatedHTML += `
