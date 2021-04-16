@@ -24,9 +24,14 @@ function closeModalRegister() {
 
 function openModalLogin() {
   if(modalRegister.style.display =='flex') {
-    modalRegister.style.display = 'none';
+    modalRegister.style.display == 'none';
   }
-  modalLogin.style.display = 'flex';
+  modalLogin.style.display == 'flex';
+}
+
+function logout() {
+  localStorage.removeItem('UsersLogin');
+  document.location.reload(true);
 }
 
 function request({method, endPoint, data, onSentCallback}) {
@@ -50,11 +55,15 @@ function request({method, endPoint, data, onSentCallback}) {
 }
 
 function login() {
+  let registerEmailInput = document.getElementById('email');
+  let registerPasswordInput = document.getElementById('senha');
 
   let objData = {
     email: document.getElementById('email').value,
     password: document.getElementById('senha').value
   }
+
+  let storedUsers = localStorage.UsersLogin ? JSON.parse(localStorage.UsersLogin) : [];
 
  request({
    method: 'POST',
@@ -64,8 +73,10 @@ function login() {
       let response = JSON.parse(responseText);  
 
       if(response.error == undefined){
-        //response.error == undefined && response ==200 
-        modalLogin.style.display = 'none';
+        storedUsers.push(objData);
+        localStorage.setItem('UsersLogin', JSON.stringify(storedUsers));
+
+        document.getElementById('modalLogin').style.display = 'none';
         document.getElementById('main').style.display = 'none';
         
         document.getElementById("timer").innerHTML="Login efetuado com sucesso, aguarde 2 segundos!";
@@ -80,10 +91,13 @@ function login() {
 
       if(response.error == "user not found"){
         modalLogin.style.display = 'none';
-        document.getElementById("login-notfound").innerHTML="** Usuário não encontrado, efetue o login novamente **";
-        setTimeout(function(){
-         document.getElementById("login-notfound").innerHTML="";
-        },5000);
+        if(response.error != undefined && registerEmailInput.value.length > 2 && registerPasswordInput.value.length > 2) {
+          document.getElementById("login-notfound").innerHTML="** Email ou Senha incorreta, efetue o login novamente **";
+          setTimeout(function(){
+          document.getElementById("login-notfound").innerHTML="";
+          },5000);
+        }
+        
         modalLogin.style.display = 'flex';       
       }    
    }
@@ -91,9 +105,10 @@ function login() {
 }
 
 function register() {
-
   let registerEmailInput = document.getElementById('emailRegister');
   let registerPasswordInput = document.getElementById('senhaRegister');
+
+  let storedUsers = localStorage.UsersLogin ? JSON.parse(localStorage.UsersLogin) : [];
 
   let objData = {
     email: document.getElementById('emailRegister').value,
@@ -107,6 +122,8 @@ function register() {
    onSentCallback: function( responseText ) {
       let response = JSON.parse(responseText); 
       if(response.error == undefined){
+        storedUsers.push(objData);
+        localStorage.setItem('UsersLogin', JSON.stringify(storedUsers));
         modalRegister.style.display = 'none'; 
         document.getElementById('main').style.display = 'none';
         document.getElementById("timer").innerHTML="Registro efetuado com sucesso, aguarde 2 segundos!";
@@ -117,12 +134,12 @@ function register() {
         document.getElementById('container-area2').style.display = 'flex';
         document.querySelector('.container-login').style.display = 'none';
         document.querySelector('.container-logout').style.display = 'flex';
-      }
+      } 
 
       if(response.error != undefined && registerEmailInput.value != '' && registerPasswordInput.value != '' ){
         modalRegister.style.display = 'none';
 
-        if(response.error != undefined && registerEmailInput.value.length > 3 && registerPasswordInput.value.length > 3) {
+        if(response.error != undefined && registerEmailInput.value.length > 2 && registerPasswordInput.value.length > 2) {
           document.getElementById("register-error").innerHTML="** Erro no cadastramento, efetue o cadastro novamente **";
         }
         setTimeout(function(){
