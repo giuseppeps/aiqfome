@@ -70,7 +70,8 @@ a {
   outline: 0;
 }
 
-button.login:hover {
+button.login:hover,
+button.logout:hover {
   cursor: pointer;
 }
 
