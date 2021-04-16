@@ -60,13 +60,15 @@
       <button type="submit" class="btnRegister"  onclick="register()">Cadastrar</button>     
       <br>
       <br>
-      <a href="#" onclick="openModalLogin()">Login</a></span> 
+      <p class="LostPassword">
+        <span><a href="#" onclick="openModalLogin()">Ir para formulário de Login</a></span>
+      </p>
     </div>
   </form><!--login-banner-->
 
   <div id="header">
     <div class="container-login">
-      <button onclick="toogleModalLogin()" class="login">entrar</button>
+      <button onclick="isLogged()" class="login">entrar</button>
     </div>
 
     <div class="container-logout">
