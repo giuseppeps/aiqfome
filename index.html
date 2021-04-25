@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <form id="modalLogin" class="modal validator">
+  <form id="modalLogin" class="modal validator" >
     <div class="login">
 
       <p class="Close">
@@ -29,10 +29,10 @@
         <img id="logoSenha" src= "/assets/img/senha.png" alt= "Logo senha"></img> 
         <input type="password" id= "senha" placeholder="senha" data-rules="required|min=3" />
       </div>
-      <button type="submit" class="btnLogin" onclick="login()" >ENTRAR</button>
+      <button type="submit" class="btnLogin" onclick="login(event)" >ENTRAR</button>
       
       <p class="LostPassword">
-        <span>putz, <a href="#" onclick="openModalRegister()">não tenho uma conta</a> :(</span>
+        <span>putz, <a href="#" onclick="openModalRegister(event)">não tenho uma conta</a> :(</span>
       </p>
       
     </div>
@@ -57,18 +57,18 @@
         <img id="logoSenha" src= "/assets/img/senha.png" alt= "Logo senha"></img> 
         <input type="password" id= "senhaRegister" placeholder="senha" data-rules="required|min=3" />
       </div>
-      <button type="submit" class="btnRegister"  onclick="register()">Cadastrar</button>     
+      <button type="submit" class="btnRegister"  onclick="register(event)">Cadastrar</button>     
       <br>
       <br>
       <p class="LostPassword">
-        <span><a href="#" onclick="openModalLogin()">Ir para formulário de Login</a></span>
+        <span><a href="#" onclick="openModalLogin(event)">Ir para formulário de Login</a></span>
       </p>
     </div>
   </form><!--login-banner-->
 
   <div id="header">
     <div class="container-login">
-      <button onclick="isLogged()" class="login">entrar</button>
+      <button onclick="showRestrictPage()" class="login">entrar</button>
     </div>
 
     <div class="container-logout">
@@ -83,7 +83,7 @@
     <div class="empty"></div>
   </div><!--header-->
 
-  <div id="main">
+  <div id="main" style="display: none;">
     <section class="banner">
       <div class="containerText">
         <p class="bannerText">
@@ -144,9 +144,10 @@
     </div><!--help-button-->
   </div>
    
+  
   <div id="container-area2">
+    <span id="timer"></span> 
     <section class="area2">
-      <span id="timer"></span>
         <form class="area2-form">
           <input class="area2-input" type="text" placeholder="Busque a sua receita">
         </form>
