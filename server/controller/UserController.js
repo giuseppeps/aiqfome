@@ -2,7 +2,7 @@ const User = require('../model/User');
 
 module.exports = {
   async register(req, res) {
-    const {email, password} = req.body;
+    const {email} = req.body;
     try {
       if(await User.findOne({email})) {
         return res.status(400).send({error: 'Usuário existente'});
