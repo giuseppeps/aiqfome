@@ -1,5 +1,6 @@
 const express  = require('express');
 const mongoose = require('mongoose');
+const router   = require('./routes');
 
 const app = express();
 const Port = process.env.Port || 3030;
@@ -11,11 +12,14 @@ const connectDB = async () => {
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useCreateIndex: true
     });
   console.log('BD conectado');
 }
 
 connectDB();
+app.use(express.json());
+app.use(router);
 
 app.listen(Port, () => console.log(`Servidor na porta ${Port}`));
