@@ -48,10 +48,11 @@ module.exports = {
       res.status(200).send('Usuário Deslogado');
     }
   },
-
-  async post(req, res) {
-    const posts = await Post.find().sort('-createdAt');
-    return res.json(posts);
+  // User.find({'name.full': {$regex: nameRegex, options: 'i'}});
+  async fetchPost(req, res) {
+    const data = {title: req.body.title}
+    const posts = await Post.find(data).sort('-createdAt');
+    return res.send(posts);
   },
   
   async insertPosts(req, res) {
