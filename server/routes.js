@@ -6,6 +6,6 @@ const router = express.Router();
 router.post("/signup", UserController.register);
 router.post("/login", UserController.login, middleware.isAdmin);
 router.post("/logout", UserController.logout);
-router.get("/post", UserController.post);
+router.post("/post", UserController.fetchPost);
 router.post("/insertPosts", UserController.insertPosts);
 module.exports = router;
