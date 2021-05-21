@@ -81,8 +81,14 @@ function register(e) {
 const loginUser = (user) => {
   axios.post('http://localhost:3030/login', user)
     .then(response => {
-      setLocalStorage(user);
-      showRestrictPage(true);
+      if(response.status == 201) {
+        setLocalStorage(user);
+        showRestrictPage2(true);
+        document.getElementById('main').style.display = 'none';
+      } else if(response.status === 200) {
+        setLocalStorage(user);
+        showRestrictPage(true);
+      }
     })
     .catch(error => {
       if (error.response.status === 404) {
@@ -100,7 +106,43 @@ function login(e) {
     email: document.getElementById('email').value,
     password: document.getElementById('senha').value
   }
+
   loginUser(user);
+}
+
+function showRestrictPage2(showRedirectMessage = false, showModalLogin = true){
+  if(!isLogged()) {
+
+    document.getElementById('main').style.display = 'flex';
+    document.getElementById('container-area2').style.display = 'none';
+    document.querySelector('.container-login').style.display = 'flex';
+    document.querySelector('.container-logout').style.display = 'none';
+    document.querySelector('.area2').style.display = 'none';
+
+    return (showModalLogin)?  toogleModalLogin() : false;
+  }
+
+  document.getElementById('modalLogin').style.display = 'none';
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('container-area2').style.display = 'flex';
+  document.querySelector('.container-login').style.display = 'none';
+  document.querySelector('.container-logout').style.display = 'flex';
+ 
+  document.getElementById('area2-input').style.display = 'none';
+  document.getElementById('area2-inputPost').style.display = 'block';
+
+  if(showRedirectMessage) {
+    document.getElementById("timer").innerHTML="Login efetuado com sucesso, aguarde 2 segundos!";
+    setTimeout(function() {
+      document.getElementById("timer").innerHTML="";
+      document.querySelector('.area2').style.display = 'block';
+    },2000);
+
+    return;
+  }
+
+  document.querySelector('.area2').style.display = 'block';
+
 }
 
 function showRestrictPage(showRedirectMessage = false, showModalLogin = true){
@@ -120,6 +162,9 @@ function showRestrictPage(showRedirectMessage = false, showModalLogin = true){
   document.getElementById('container-area2').style.display = 'flex';
   document.querySelector('.container-login').style.display = 'none';
   document.querySelector('.container-logout').style.display = 'flex';
+
+  document.getElementById('area2-input').style.display = 'flex';
+  document.getElementById('area2-inputPost').style.display = 'none';
 
   if(showRedirectMessage) {
     document.getElementById("timer").innerHTML="Login efetuado com sucesso, aguarde 2 segundos!";
@@ -141,4 +186,33 @@ function isLogged() {
   } else {
     return false;
   }
+}
+
+const registerRecipe = (recipe) => {
+  axios.post('http://localhost:3030/insertPosts', recipe)
+    .then(response => {
+      alert("Cadastrado");
+    })
+    .catch(error => {
+      if(error.response.status === 409) {
+        document.getElementById("registerRec-error").innerHTML="** Esta receita já existe **";
+      } else if(error.response.status === 400) {
+        document.getElementById("registerRec-error").innerHTML="** Erro no cadastramento, tente novamente **";
+      }
+    })
+};
+
+function registerRec(e) {
+  e.preventDefault();
+
+  const registerTitle = document.getElementById('titleRec').value;
+  const registerURLImage = document.getElementById('urlImage').value;
+  const registerURLRecipe = document.getElementById('urlRecipe').value;
+
+  const recipe = {
+    title: registerTitle, 
+    urlImage: registerURLImage,
+    urlRecipe: registerURLRecipe
+  };
+  registerRecipe(recipe);
 }
