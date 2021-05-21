@@ -19,7 +19,7 @@ module.exports = {
     }
   },
 
-  async login(req, res) {
+  async login(req, res, next) {
     const{email, password} = req.body;
     
     const user = await User.findOne({email}).select('+password');
@@ -33,7 +33,11 @@ module.exports = {
     }
 
     req.session.user = user;
-    res.send({user});
+    if(req.session.user.email == "admin@gmail.com") {
+      next();
+    } else {
+      return res.send({user});
+    }
   },
 
   async logout(req, res) {
