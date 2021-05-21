@@ -149,7 +149,17 @@
     <span id="timer"></span> 
     <section class="area2">
         <form class="area2-form">
-          <input class="area2-input" type="text" placeholder="Busque a sua receita">
+          <input class="area2-input" id="area2-input" type="text" placeholder="Busque a sua receita">
+        </form>
+        <form class="area2-inputPost" id="area2-inputPost">
+          <label for="titleRec">Nome da receita:</label><br>
+          <input type="text" id="titleRec" name="titleRec"><br>
+          <label for="urlImage">URL da imagem:</label><br>
+          <input type="text" id="urlImage" name="urlImage"><br>      
+          <label for="urlRecipe">URL da receita:</label><br>
+          <input type="text" id="urlRecipe" name="urlRecipe"><br><br>
+          <button type="submit" class="btnRegister"  onclick="registerRec(event)">Cadastrar</button><br><br>     
+          <span id="registerRec-error"></span><script></script>
         </form>
         <div class="search-result"></div>
     </section>
