@@ -35,4 +35,5 @@ function generateHTML(results){
     </div>    `
   })
   searchResultDiv.innerHTML = generatedHTML;
-}
+};
+
