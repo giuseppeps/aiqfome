@@ -7,14 +7,17 @@ const APP_key = "cb7ac662b9de5a8c8667ca5806216020";
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  const inputValue = document.getElementById('area2-input').value;
+  const obj = {title: inputValue};
   searchQuery = e.target.querySelector('input').value;
-  posts();
+  posts(obj);
+  console.log(obj);
 })
 
-const posts = () => {
-  axios.get('http://localhost:3030/post')
+const posts = (obj) => {
+  axios.post('http://localhost:3030/post', obj)
     .then(response => {
-      console.log(response.data)
+      console.log(response)
       generateHTML(response.data)
     })
     .catch(error => {
