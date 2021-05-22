@@ -15,7 +15,7 @@ searchForm.addEventListener('submit', (e) => {
 })
 
 const posts = (obj) => {
-  axios.post('http://localhost:3030/post', obj)
+  axios.post('https://aiqfome2.herokuapp.com/post', obj)
     .then(response => {
       console.log(response)
       generateHTML(response.data)

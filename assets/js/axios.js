@@ -39,7 +39,7 @@ function setLocalStorage(user) {
 }
 
 function logout() {
-  axios.post('http://localhost:3030/logout')
+  axios.post('https://aiqfome2.herokuapp.com/logout')
     .then(response => {
       localStorage.removeItem('UsersLogin');
       document.location.reload(true);
@@ -50,7 +50,7 @@ function logout() {
 };
 
 const registerUser = (user) => {
-  axios.post('http://localhost:3030/signup', user)
+  axios.post('https://aiqfome2.herokuapp.com/signup', user)
     .then(response => {
       setLocalStorage(user);
       modalRegister.style.display = 'none';
@@ -79,7 +79,7 @@ function register(e) {
 }
 
 const loginUser = (user) => {
-  axios.post('http://localhost:3030/login', user)
+  axios.post('https://aiqfome2.herokuapp.com/login', user)
     .then(response => {
       if(response.status == 201) {
         setLocalStorage(user);
@@ -189,7 +189,7 @@ function isLogged() {
 }
 
 const registerRecipe = (recipe) => {
-  axios.post('http://localhost:3030/insertPosts', recipe)
+  axios.post('https://aiqfome2.herokuapp.com//insertPosts', recipe)
     .then(response => {
       alert("Cadastrado");
     })
