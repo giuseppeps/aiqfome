@@ -189,7 +189,7 @@ function isLogged() {
 }
 
 const registerRecipe = (recipe) => {
-  axios.post('https://aiqfome2.herokuapp.com//insertPosts', recipe)
+  axios.post('https://aiqfome2.herokuapp.com/insertPosts', recipe)
     .then(response => {
       alert("Cadastrado");
     })
